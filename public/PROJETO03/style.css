@@ -1,0 +1,132 @@
+body{
+    background-color: lightgray;
+}
+
+.titulo{
+    background-color: bisque;
+    text-align: center;
+    padding: 90px;
+    font-size: 50px;
+    border-style: solid;
+    border-color:darkblue;
+    color: darkgreen;
+    margin-top: 10px;
+}
+
+.A{
+    BACKGROUND-COLOR: lightskyblue;
+    justify-content: center;
+    color:darkred;
+    padding:5px;
+    display: flex;
+    gap: 90px;
+    font-weight: bold;
+
+
+}
+
+.titulo2{
+    text-align: center;
+}
+
+.p1{
+    text-align: center;
+    font-size: 20pt;
+    font-family:sans-serif;
+    color: indigo
+}
+
+.p2{
+    text-align: center;
+    font-size: 20pt;
+    font-family:sans-serif;
+    color: indigo
+}
+
+.p3{
+    text-align: center;
+    font-size: 20pt;
+    font-family:sans-serif;
+    color: indigo
+}
+
+.titulo3{
+    text-align: center;
+}
+
+.titulo4{
+    text-align: center;
+}
+.titulo5{
+    text-align: center;
+}
+
+
+.tabela{
+    text-align: center;
+    display: inline-block;
+    background-color: yellow;
+    margin: 40px;
+    width: 600px;
+    margin-left:460px;
+    
+}
+
+.contato{
+    border-style: dashed;
+    border-color:red;
+    text-align: center;
+    margin-left: 580px;
+    margin-right: 580px;
+}
+
+
+
+.h6{
+    text-align:center;
+    background-color: bisque;
+    padding: 70px;
+    font-size: 15pt;
+    font-family:comic sans ms;
+    margin-bottom: 0px;
+}
+
+
+.img1{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+}
+
+.img2{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+
+    }
+
+.img3{
+    position: relative;
+    margin-bottom: 10px;
+    left: 0px;
+}
+
+.img4{
+    position: relative;
+    margin-bottom: 10px;
+    right: 0px;
+}
+
+.livros{
+    justify-content: center;
+    display: flex;
+    gap: 70px;
+    
+}
+
+.videos{
+    justify-content: center;
+    display: flex;
+    gap: 70px;
+    
+}

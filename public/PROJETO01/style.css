@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(147, 197, 206);
+
+}
+
+#blue{
+    color: yellow
+}
+.título{
+    color:blueviolet;
+    text-align: center;
+    font-size: 25pt;
+}
+table{
+    color:blue;
+    text-align: center;
+}
+a:hover{
+    color: yellow;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+  <style>
+    /* Cor do fundo */
+    body {
+      background-color: #dbeafe;
+      margin: 0;
+      min-height: 100vh;
+      /* Centralização dos elementos da página */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    canvas {
+      background-color: #ffffff;
+      border: 2px solid #333;
+    }
+
+    a {
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  
+  <canvas id="areaDesenho" width="300" height="300"></canvas>
+
+  
+
+  <script>
+    const canvas = document.getElementById("areaDesenho");
+    const ctx = canvas.getContext("2d");
+
+    function desenhar_quadrado(x, y, lado, cor) {
+      ctx.fillStyle = cor;
+      ctx.fillRect(x, y, lado, lado);
+    }
+
+    function desenhar_linha(x1, y1, x2, y2, cor, espessura) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = cor;
+      ctx.lineWidth = espessura;
+      ctx.stroke();
+    }
+
+   
+    function desenhar_arco(x, y, raio, anguloInicio, anguloFim, corPreenchimento, corBorda) {
+      ctx.beginPath();
+      ctx.arc(x, y, raio, anguloInicio * Math.PI / 180, anguloFim * Math.PI / 180);
+      if (corPreenchimento) {
+        ctx.fillStyle = corPreenchimento;
+        ctx.fill();
+      }
+      if (corBorda) {
+        ctx.strokeStyle = corBorda;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    
+    function escrever(texto, x, y, cor, fonte) {
+      ctx.fillStyle = cor;
+      ctx.font = fonte;
+      ctx.textAlign = "center";
+      ctx.fillText(texto, x, y);
+    }
+
+  
+    const L = 29; // lado dos quadrinhos
+
+    // Quadrados grandes dos cantos superiores
+    desenhar_quadrado(0, 0, 48, "blue");
+    desenhar_quadrado(252, 0, 48, "red");
+
+    // Quadrado vermelho abaixo do centro
+    desenhar_quadrado(111, 144, 39, "red");
+
+    // Quadrados ciano das laterais
+    desenhar_quadrado(0, 115, L, "cyan");
+    desenhar_quadrado(0, 144, L, "cyan");
+    desenhar_quadrado(271, 130, L, "cyan");
+
+    // Escada amarela (canto inferior esquerdo)
+    desenhar_quadrado(0, 232, L, "yellow");
+    desenhar_quadrado(0, 261, L, "yellow");
+    desenhar_quadrado(29, 261, L, "yellow");
+
+    // Escada preta (canto inferior direito)
+    desenhar_quadrado(271, 232, L, "black");
+    desenhar_quadrado(271, 261, L, "black");
+    desenhar_quadrado(242, 261, L, "black");
+
+    // Linhas
+    desenhar_linha(48, 47, 150, 144, "blue", 1);   
+    desenhar_linha(252, 47, 150, 144, "red", 1);   
+    desenhar_linha(0, 144, 300, 144, "green", 2);  
+    desenhar_linha(150, 144, 150, 253, "gray", 2); 
+
+    // Arcos verdes em cima (centro 150,144)
+    desenhar_arco(150, 144, 58, 180, 360, null, "green");
+    desenhar_arco(150, 144, 78, 180, 360, null, "green");
+
+    // Arcos de baixo (centro 150,300)
+    desenhar_arco(150, 300, 50, 180, 360, null, "green");
+    desenhar_arco(150, 300, 74, 180, 360, null, "green");
+    desenhar_arco(150, 300, 39, 180, 360, "cyan", "green");
+
+    // Círculos
+    desenhar_arco(150, 109, 15, 0, 360, "cyan", "blue");
+    desenhar_arco(71, 211, 14, 0, 360, "yellow", "green");
+    desenhar_arco(218, 211, 14, 0, 360, "yellow", "green");
+
+    // Texto
+    escrever("Canvas", 150, 58, "#333", "20px Arial");
+  </script>
+</body>

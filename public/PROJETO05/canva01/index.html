@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas 2 - Paisagem</title>
+  <style>
+    body {
+      background-color: #dbeafe;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      border: 2px solid #333;
+    }
+    a {
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="areaDesenho" width="300" height="300"></canvas>
+  
+  <script>
+    const canvas = document.getElementById("areaDesenho");
+    const ctx = canvas.getContext("2d");
+
+    function desenhar_retangulo(x, y, largura, altura, cor) {
+      ctx.fillStyle = cor;
+      ctx.fillRect(x, y, largura, altura);
+    }
+
+    function desenhar_triangulo(x1, y1, x2, y2, x3, y3, cor) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(x3, y3);
+      ctx.closePath();
+      ctx.fillStyle = cor;
+      ctx.fill();
+    }
+
+    function desenhar_circulo(x, y, raio, cor) {
+      ctx.beginPath();
+      ctx.arc(x, y, raio, 0, 2 * Math.PI);
+      ctx.fillStyle = cor;
+      ctx.fill();
+    }
+
+    
+    function desenhar_setor(x, y, raio, anguloInicio, anguloFim, cor) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.arc(x, y, raio, anguloInicio * Math.PI / 180, anguloFim * Math.PI / 180);
+      ctx.closePath();
+      ctx.fillStyle = cor;
+      ctx.fill();
+    }
+
+   
+    desenhar_retangulo(0, 0, 300, 300, "#90ffd0");        
+    desenhar_circulo(224, 74, 37, "#ffff33");            
+    desenhar_retangulo(0, 225, 300, 75, "#808080");       
+
+    // Lago (azul)
+    desenhar_retangulo(0, 225, 37, 75, "#4d90ff");
+    desenhar_setor(0, 225, 37, 270, 360, "#4d90ff");      
+    desenhar_retangulo(0, 262, 112, 38, "#4d90ff");
+    desenhar_setor(112, 300, 37, 270, 360, "#4d90ff");    
+
+    // Casa
+    desenhar_retangulo(112, 150, 75, 75, "#8b4513");      
+    desenhar_triangulo(112, 150, 149, 112, 187, 150, "#ff6f4f"); 
+    desenhar_retangulo(119, 164, 23, 23, "#4db8ff");      
+    desenhar_retangulo(157, 164, 23, 23, "#4db8ff");      
+    desenhar_retangulo(142, 187, 15, 38, "#5c3d1e");     
+
+    // Árvore da esquerda
+    desenhar_retangulo(37, 193, 14, 32, "#8b4513");
+    desenhar_circulo(44, 172, 22, "#2e8b22");
+
+    // Árvore da direita
+    desenhar_retangulo(262, 232, 14, 30, "#8b4513");
+    desenhar_circulo(269, 210, 22, "#2e8b22");
+  </script>
+</body>
+</html>
